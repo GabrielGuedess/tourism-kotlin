@@ -1,0 +1,48 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Main" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <!--<item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+
+    <style name="MyCustomTripProgressStyle">
+        <item name="tripProgressTextColor">@color/violet_600</item>
+        <item name="tripProgressDividerColor">#CDCDCD</item>
+    </style>
+
+    <style name="MyCustomSpeedLimitStyle">
+        <item name="speedLimitTextColor">#FFFFFF</item>
+        <item name="speedLimitBackgroundColor">#181818</item>
+        <item name="speedLimitMutcdBorderColor">@color/violet_600</item>
+        <item name="speedLimitViennaBorderColor">@color/violet_600</item>
+    </style>
+
+    <style name="DropInInfoPanelHeadlineTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorOnSurface</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/mapbox_infoPanel_text_headline</item>
+    </style>
+
+    <style name="MyCustomStartNavigationButton">
+        <item name="extendableButtonIcon">@drawable/mapbox_ic_puck</item>
+        <item name="extendableButtonBackground">@drawable/mapbox_bg_action_button</item>
+        <item name="extendableButtonTextAppearance">@style/DropInStartButtonTextAppearance</item>
+    </style>
+</resources>

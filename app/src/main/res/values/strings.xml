@@ -1,0 +1,5 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">TourismApp</string>
+    <string name="mapbox_access_token" tools:ignore="Typos">sk.eyJ1IjoiZ2FicmllbGd1ZWRlczU4IiwiYSI6ImNsYXQ3aHkzeTA2MTkzdmx1cmprdjN3djEifQ.CU0QgdsXEiFpdRvd4HvwLg</string>
+    <string name="button_rotas">Button Rotas</string>
+</resources>
