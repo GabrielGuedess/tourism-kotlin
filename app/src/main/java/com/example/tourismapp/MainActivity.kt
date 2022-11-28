@@ -2,14 +2,12 @@ package com.example.tourismapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -182,8 +180,10 @@ class MainActivity : AppCompatActivity() {
         pointAnnotationShopping = pointAnnotationManager.create(pointAnnotationOptionsShopping);
         pointAnnotationIgreja = pointAnnotationManager.create(pointAnnotationOptionsIgreja);
         pointAnnotationZoologica = pointAnnotationManager.create(pointAnnotationOptionsZoologica);
-        pointAnnotationShoppingMaia = pointAnnotationManager.create(pointAnnotationOptionsShoppingMaia);
-        pointAnnotationLagoDosPatos = pointAnnotationManager.create(pointAnnotationOptionsLagoDosPatos);
+        pointAnnotationShoppingMaia =
+            pointAnnotationManager.create(pointAnnotationOptionsShoppingMaia);
+        pointAnnotationLagoDosPatos =
+            pointAnnotationManager.create(pointAnnotationOptionsLagoDosPatos);
         pointAnnotationJulio = pointAnnotationManager.create(pointAnnotationOptionsJulio);
         pointAnnotationAdamastor = pointAnnotationManager.create(pointAnnotationOptionsAdamastor);
 
@@ -197,7 +197,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.529687773412746)
+                        .putExtra("routeLat", -23.457351838840353)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Bosque Maia"
         }
@@ -212,7 +216,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.549118601134445)
+                        .putExtra("routeLat", -23.4879523668775)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Shopping Internacional"
         }
@@ -227,7 +235,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.53104863144423)
+                        .putExtra("routeLat", -23.470117607763537)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Igreja da Conceição"
         }
@@ -242,7 +254,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.55328043165855)
+                        .putExtra("routeLat", -23.442689862086453)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Zoológico Municipal"
         }
@@ -257,7 +273,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.540031569708674)
+                        .putExtra("routeLat", -23.443413274698784)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Shopping Maia"
         }
@@ -272,7 +292,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.56339968861684)
+                        .putExtra("routeLat", -23.45235282995284423668775)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Lago dos Patos"
         }
@@ -287,7 +311,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.54599142460762)
+                        .putExtra("routeLat", -23.480656207654988)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Julio Fracalanza"
         }
@@ -302,7 +330,11 @@ class MainActivity : AppCompatActivity() {
             }
         ).apply {
             findViewById<Button>(R.id.selectButton).setOnClickListener {
-                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@MainActivity, Routes::class.java)
+                        .putExtra("routeLng", -46.51885886375584)
+                        .putExtra("routeLat", -23.46960231735447)
+                )
             }
             findViewById<TextView>(R.id.textNativeView).text = "Adamastor"
         }
@@ -351,7 +383,7 @@ class MainActivity : AppCompatActivity() {
 
 
             mapView.logo.enabled = false
-            mapView.attribution.enabled =false
+            mapView.attribution.enabled = false
 
             mapView.compass.marginTop = getStatusBarHeight() + 40.0F
 
@@ -614,10 +646,11 @@ class MainActivity : AppCompatActivity() {
             .withFillColor("#7FDA23")
             .withFillOpacity(0.4)
 
-        val polygonAnnotationShoppingInternacional: PolygonAnnotationOptions = PolygonAnnotationOptions()
-            .withPoints(pointsShoppingInternacional)
-            .withFillColor("#FFBE1A")
-            .withFillOpacity(0.4)
+        val polygonAnnotationShoppingInternacional: PolygonAnnotationOptions =
+            PolygonAnnotationOptions()
+                .withPoints(pointsShoppingInternacional)
+                .withFillColor("#FFBE1A")
+                .withFillOpacity(0.4)
 
         val polygonAnnotationIgreja: PolygonAnnotationOptions = PolygonAnnotationOptions()
             .withPoints(pointsIgreja)
@@ -639,10 +672,11 @@ class MainActivity : AppCompatActivity() {
             .withFillColor("#7FDA23")
             .withFillOpacity(0.4)
 
-        val polygonAnnotationParqueJulioFracalanza: PolygonAnnotationOptions = PolygonAnnotationOptions()
-            .withPoints(pointsParqueJulioFracalanza)
-            .withFillColor("#7FDA23")
-            .withFillOpacity(0.4)
+        val polygonAnnotationParqueJulioFracalanza: PolygonAnnotationOptions =
+            PolygonAnnotationOptions()
+                .withPoints(pointsParqueJulioFracalanza)
+                .withFillColor("#7FDA23")
+                .withFillOpacity(0.4)
 
         val polygonAnnotationAdamastor: PolygonAnnotationOptions = PolygonAnnotationOptions()
             .withPoints(pointsAdamastor)
@@ -695,8 +729,12 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        locationComponentPlugin.addOnIndicatorPositionChangedListener(onIndicatorPositionChangedListener)
-        locationComponentPlugin.addOnIndicatorBearingChangedListener(onIndicatorBearingChangedListener)
+        locationComponentPlugin.addOnIndicatorPositionChangedListener(
+            onIndicatorPositionChangedListener
+        )
+        locationComponentPlugin.addOnIndicatorBearingChangedListener(
+            onIndicatorBearingChangedListener
+        )
     }
 
     private fun onCameraTrackingDismissed() {
@@ -717,10 +755,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun animateCameraDelayed() {
         mapView.camera.apply {
-            val bearing = createBearingAnimator(CameraAnimatorOptions.cameraAnimatorOptions(-45.0)) {
-                duration = 4000
-                interpolator = AccelerateDecelerateInterpolator()
-            }
+            val bearing =
+                createBearingAnimator(CameraAnimatorOptions.cameraAnimatorOptions(-45.0)) {
+                    duration = 4000
+                    interpolator = AccelerateDecelerateInterpolator()
+                }
             val zoom = createZoomAnimator(
                 CameraAnimatorOptions.cameraAnimatorOptions(14.0) {
                     startValue(3.0)
